@@ -25,41 +25,27 @@
     </div>
 
     <script>
-        let selectedGrade = null;
-
         function showSubjects(grade) {
-            selectedGrade = grade;
-            document.getElementById("grade-selection").style.display = "none";
-            document.getElementById("subjects-container").classList.remove("hidden");
-            document.getElementById("selected-grade-title").innerText = "Grade " + grade;
-            
-            // Define subjects and their specific filenames
-            let subjects = {
-                "Math": "math.html",
-                "Biology": "bio.html",
-                "Chemistry": "chem.html",
-                "Physics": "phy.html"
-            };
+    selectedGrade = grade;
+    document.getElementById("grade-selection").style.display = "none";
+    document.getElementById("subjects-container").classList.remove("hidden");
+    document.getElementById("selected-grade-title").innerText = "Grade " + grade;
+    
+    let subjects = ["Math", "Biology", "Chemistry", "Physics"];
+    let subjectList = document.getElementById("subject-list");
+    subjectList.innerHTML = "";
 
-            let subjectList = document.getElementById("subject-list");
-            subjectList.innerHTML = "";
+    subjects.forEach(subject => {
+        let subjectButton = document.createElement("button");
+        subjectButton.className = "subject-button";
+        subjectButton.innerText = subject;
+        subjectButton.onclick = function() {
+            window.location.href = `./vscode/Grade ${grade}/${subject.toLowerCase()}.html`;
+        };
+        subjectList.appendChild(subjectButton);
+    });
+}
 
-            // Generate subject buttons
-            Object.keys(subjects).forEach(subject => {
-                let subjectButton = document.createElement("button");
-                subjectButton.className = "subject-button";
-                subjectButton.innerText = subject;
-                subjectButton.onclick = function() {
-                    window.location.href = `.vscode/Grade ${grade}/${subjects[subject]}`;
-                };
-                subjectList.appendChild(subjectButton);
-            });
-        }
-
-        function goBack() {
-            document.getElementById("subjects-container").classList.add("hidden");
-            document.getElementById("grade-selection").style.display = "block";
-        }
     </script>
 </body>
 </html>
