@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    margin: 80px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+h1, h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 18px;
+    color: white;
+}
+
+.grades, .subjects {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.grade-button, .subject-button, .back-button {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 12px;
+    background: white;
+    color: #6a11cb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+    text-align: center;
+}
+
+.grade-button:hover, .subject-button:hover, .back-button:hover {
+    background: #ffdd57;
+    color: #333;
+}
+
+/* Updated Back Button - Smaller with Arrow */
+.back-button {
+    font-size: 14px;
+    padding: 8px 12px;
+    background: white;
+    color: #6a11cb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: 20px auto 0;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background: #ffdd57;
+    color: #333;
+}
+
+.back-button::before {
+    content: "← ";
+    font-size: 16px;
+    margin-right: 5px;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Hub - Select Your Grade</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="grade-selection">
+        <h1>Welcome to Study Hub</h1>
+        <p>Select Your Grade:</p>
+        <div class="grades">
+            <button class="grade-button" onclick="showSubjects(8)">Grade 8</button>
+            <button class="grade-button" onclick="showSubjects(9)">Grade 9</button>
+            <button class="grade-button" onclick="showSubjects(10)">Grade 10</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="subjects-container">
+        <h2 id="selected-grade-title"></h2>
+        <p>Select a Subject:</p>
+        <div class="subjects" id="subject-list"></div>
+        <button class="back-button" onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        let selectedGrade = null;
+
+        function showSubjects(grade) {
+            selectedGrade = grade;
+            document.getElementById("grade-selection").style.display = "none";
+            document.getElementById("subjects-container").classList.remove("hidden");
+            document.getElementById("selected-grade-title").innerText = "Grade " + grade;
+            
+            // Define subjects and their specific filenames
+            let subjects = {
+                "Math": "math.html",
+                "Biology": "bio.html",
+                "Chemistry": "chem.html",
+                "Physics": "phy.html"
+            };
+
+            let subjectList = document.getElementById("subject-list");
+            subjectList.innerHTML = "";
+
+            // Generate subject buttons
+            Object.keys(subjects).forEach(subject => {
+                let subjectButton = document.createElement("button");
+                subjectButton.className = "subject-button";
+                subjectButton.innerText = subject;
+                subjectButton.onclick = function() {
+                    window.location.href = `.vscode/Grade ${grade}/${subjects[subject]}`;
+                };
+                subjectList.appendChild(subjectButton);
+            });
+        }
+
+        function goBack() {
+            document.getElementById("subjects-container").classList.add("hidden");
+            document.getElementById("grade-selection").style.display = "block";
+        }
+    </script>
+</body>
+</html>
