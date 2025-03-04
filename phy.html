@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Hub - Select Your Grade</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="grade-selection">
+        <h1>Welcome to Study Hub</h1>
+        <p>Select Your Grade:</p>
+        <div class="grades">
+            <button class="grade-button" onclick="showSubjects(8)">Grade 8</button>
+            <button class="grade-button" onclick="showSubjects(9)">Grade 9</button>
+            <button class="grade-button" onclick="showSubjects(10)">Grade 10</button>
+        </div>
+    </div>
+
+    <div class="container hidden" id="subjects-container">
+        <h2 id="selected-grade-title"></h2>
+        <p>Select a Subject:</p>
+        <div class="subjects" id="subject-list"></div>
+        <button class="back-button" onclick="goBack()">Back</button>
