@@ -78,7 +78,6 @@ p {
 }
 
 .back-button::before {
-    content: "← ";
     font-size: 16px;
     margin-right: 5px;
 }

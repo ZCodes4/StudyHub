@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Grade Selection -->
     <div class="container" id="grade-selection">
         <h1>Welcome to Study Hub</h1>
         <p>Select Your Grade:</p>
@@ -17,35 +18,44 @@
         </div>
     </div>
 
+    <!-- Subject Selection -->
     <div class="container hidden" id="subjects-container">
         <h2 id="selected-grade-title"></h2>
         <p>Select a Subject:</p>
         <div class="subjects" id="subject-list"></div>
-        <button class="back-button" onclick="goBack()">Back</button>
+        <button class="back-button" onclick="goBack()">⬅ Back</button>
     </div>
 
     <script>
         function showSubjects(grade) {
-    selectedGrade = grade;
-    document.getElementById("grade-selection").style.display = "none";
-    document.getElementById("subjects-container").classList.remove("hidden");
-    document.getElementById("selected-grade-title").innerText = "Grade " + grade;
-    
-    let subjects = ["Math", "Biology", "Chemistry", "Physics"];
-    let subjectList = document.getElementById("subject-list");
-    subjectList.innerHTML = "";
+            document.getElementById("grade-selection").style.display = "none";
+            document.getElementById("subjects-container").classList.remove("hidden");
+            document.getElementById("selected-grade-title").innerText = "Grade " + grade;
 
-    subjects.forEach(subject => {
-        let subjectButton = document.createElement("button");
-        subjectButton.className = "subject-button";
-        subjectButton.innerText = subject;
-        subjectButton.onclick = function() {
-            window.location.href = `./vscode/Grade ${grade}/${subject.toLowerCase()}.html`;
-        };
-        subjectList.appendChild(subjectButton);
-    });
-}
+            let subjects = {
+                "Math": "math.html",
+                "Biology": "bio.html",
+                "Chemistry": "chem.html",
+                "Physics": "phy.html"
+            };
 
+            let subjectList = document.getElementById("subject-list");
+            subjectList.innerHTML = "";
+
+            Object.keys(subjects).forEach(subject => {
+                let subjectButton = document.createElement("a");
+                subjectButton.className = "subject-button";
+                subjectButton.innerText = subject;
+                subjectButton.href = subjects[subject]; // Direct link (No folder structure)
+                subjectButton.style.display = "block";
+                subjectList.appendChild(subjectButton);
+            });
+        }
+
+        function goBack() {
+            document.getElementById("subjects-container").classList.add("hidden");
+            document.getElementById("grade-selection").style.display = "block";
+        }
     </script>
 </body>
 </html>

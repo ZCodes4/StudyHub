@@ -3,10 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Hub - Select Your Grade</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Class 8 Mathematics</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            margin: 0;
+            padding: 0;
+            color: white;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 18px;
+            color: white;
+        }
+
+        .chapters {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .chapter-button, .back-button {
+            text-decoration: none;
+            font-size: 16px;
+            padding: 12px;
+            background: white;
+            color: #6a11cb;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .chapter-button:hover, .back-button:hover {
+            background: #ffdd57;
+            color: #333;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            font-size: 14px;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to Study Hub</h1>
-        <p>Select Your Grade:</p>
+        <h1>Class 8 Mathematics</h1>
+        <p>Select a Chapter:</p>
+        <div class="chapters">
+            <button class="chapter-button" onclick="openChapter('chapter1.html')">1. Rational Numbers</button>
+            <button class="chapter-button" onclick="openChapter('chapter2.html')">2. Exponents and Powers</button>
+            <button class="chapter-button" onclick="openChapter('chapter3.html')">3. Squares and Square Roots</button>
+            <button class="chapter-button" onclick="openChapter('chapter4.html')">4. Cubes and Cube Roots</button>
+            <button class="chapter-button" onclick="openChapter('chapter5.html')">5. Algebraic Expressions</button>
+            <button class="chapter-button" onclick="openChapter('chapter6.html')">6. Factorisation</button>
+            <button class="chapter-button" onclick="openChapter('chapter7.html')">7. Linear Equations</button>
+            <button class="chapter-button" onclick="openChapter('chapter8.html')">8. Understanding Quadrilaterals</button>
+            <button class="chapter-button" onclick="openChapter('chapter9.html')">9. Mensuration</button>
+            <button class="chapter-button" onclick="openChapter('chapter10.html')">10. Data Handling</button>
+            <button class="chapter-button" onclick="openChapter('chapter11.html')">11. Probability</button>
+            <button class="chapter-button" onclick="openChapter('chapter12.html')">12. Graphs</button>
+        </div>
+        <button class="back-button" onclick="goBack()">⬅ Back</button>
+    </div>
+
+    <script>
+        function openChapter(chapter) {
+            window.location.href = chapter;
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
